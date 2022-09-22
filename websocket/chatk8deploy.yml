@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatk8s-web
+  labels: 
+    app: chatk8s-web
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: chatk8s
+  template: 
+    metadata:
+      labels: 
+        app: chatk8s
+    spec: 
+      containers:
+      - name: chatk8s
+        image: sremdocker/chatk8simage
+        ports:
+        - containerPort: 7070
